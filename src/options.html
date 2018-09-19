@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Open In Figma Options</title>
+    <style type="text/css">
+        label {
+            padding-right: 20px;
+        }
+        #status {
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <input type="checkbox" id="close">
+        Close the Chrome tab after opening Figma app
+    </p>
+    <p>What links to open in the Figma desktop app?</p>
+    <p>
+        <label>
+            <input name="linktype" type="radio" id="file">
+            Only Files
+        </label>
+        <label>
+            <input name="linktype" type="radio" id="proto">
+            Files and Prototypes
+        </label>
+    </p>
+
+    <div id="status"></div>
+    <button id="save">Save</button>
+
+    <script src="js/options.js"></script>
+</body>
+
+</html>

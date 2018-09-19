@@ -1,28 +1,65 @@
+/*  
+    background.js - openinfigma module
+
+    Copyright (c) 2018 
+    Fabrizio Rinaldi <https://www.fabriziorinaldi.io/>, 
+    Sergey Osokin <https://github.com/creold/>
+
+    Open in Figma plugin for Chrome:
+    https://www.fabriziorinaldi.io/openinfigma/
+
+    This is free software; you can redistribute it and/or modify it under
+    the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or (at
+    your option) any later version.
+
+    This software is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    See <http://www.gnu.org/licenses/>.
+*/
+
 var storage = chrome.storage.local;
 var action = chrome.browserAction;
+var tabs = chrome.tabs;
 var toggle = false;
 
-// Get Extension status from Chrome local storage
-storage.get("OpenInFigmaStat", function(data) {
-  if (data.OpenInFigmaStat || data.OpenInFigmaStat == undefined) {
+// After install/update, start the instruction page
+chrome.runtime.onInstalled.addListener (function(details) {
+    if (details.reason == "install" || details.reason == "update") {
+      showReadme();       
+    }
+});
+
+// Get extension status
+storage.get("OIFStatus", function(data) {
+  if (data.OIFStatus || data.OIFStatus == undefined) {
     toggle = true;
   }
   setAppearance(toggle);
 });
 
-// On/Off Extension
+// On/Off extension
 action.onClicked.addListener(function() {
   toggle = !toggle;
   setAppearance(toggle);
-  storage.set({ OpenInFigmaStat: toggle });
+  storage.set({ OIFStatus: toggle });
 });
 
-// Get response from content_scripts
+// Get response from content script
 chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request === "closeTab") {
-    chrome.tabs.remove(sender.tab.id);
+    tabs.remove(sender.tab.id);
   }
 });
+
+function showReadme() {
+  tabs.create ({
+      url: "https://github.com/creold/open-in-figma/blob/master/help/setup.md"
+  });     
+}
 
 function setAppearance(argument) {
   if (argument) {
@@ -45,6 +82,6 @@ function setAppearance(argument) {
       }
     });
     action.setBadgeText({ text: "OFF" });
-    action.setBadgeBackgroundColor({ color: "#F24E1E" });
+    action.setBadgeBackgroundColor({ color: "#2C2D35" });
   }
 }

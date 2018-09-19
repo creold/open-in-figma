@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Open in Figma",
-  "version": "0.3",
+  "version": "1.0",
   "description": "Open Figma links in the desktop client.",
   "homepage_url": "https://fabriziorinaldi.io/openinfigma/",
   "icons": {
@@ -19,6 +19,10 @@
     },
     "default_title": "Open in Figma"
   },
+  "options_ui": { 
+    "page": "options.html",
+    "chrome_style": true
+  },
   "background": {
     "scripts": [
       "js/background.js"
@@ -27,7 +31,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.figma.com/*"],
-      "js": ["js/request.js"],
+      "js": ["js/redirect.js"],
       "run_at": "document_start"
     }
   ],

@@ -1,8 +1,7 @@
 Open in Figma - Chrome Extension
 ======================
 
-This Chrome extension intercepts Figma shared links and redirects them to the [Figma desktop app](https://www.figma.com/downloads/).   
-Platform: Windows, Mac OS.
+### This Chrome extension intercepts Figma shared links and redirects them to the [Figma desktop app](https://www.figma.com/downloads/).   
 
 * [Official Website](https://www.fabriziorinaldi.io/openinfigma/)
 * [Chrome Web Store](https://chrome.google.com/webstore/detail/open-in-figma/ebalaiojkmmkimgpakabcblclljnoloh)
@@ -10,16 +9,11 @@ Platform: Windows, Mac OS.
 
 ## Preview
 
-![](img/preview.gif)
-
+![](img/preview.gif)   
 
 ### Usage
-1. Download [Figma desktop app](https://www.figma.com/downloads/).
-2. [Install Extension](https://chrome.google.com/webstore/detail/open-in-figma/ebalaiojkmmkimgpakabcblclljnoloh).
-
-**Notice**: If you have uninstalled the Figma desktop app, disable the extension, otherwise it will close the tabs with Figma shared links.
-
-
+1. Download and install [Figma desktop app](https://www.figma.com/downloads/).
+2. [Install extension](https://chrome.google.com/webstore/detail/open-in-figma/ebalaiojkmmkimgpakabcblclljnoloh) from Chrome Web Store.
 
 ### To install it manually:
 
@@ -33,8 +27,9 @@ Platform: Windows, Mac OS.
 
 | Version | Notes | Authors |
 | --- | --- | --- |
+| v.1.0 | Added option page, help file. Fixed issues. | [Sergey Osokin](https://github.com/creold) |
 | v.0.3 | Now you can turn ON / OFF the extension by clicking on the icon | [Sergey Osokin](https://github.com/creold) |
-| v.0.2 | After opening shared link in Figma desktop app, the extension closes the used tab in Chrome. | [Sergey Osokin](https://github.com/creold) |
+| v.0.2 | After opening shared link in Figma desktop, the Chrome tab closes automatically. | [Sergey Osokin](https://github.com/creold) |
 | v.0.1 | Initial Version. | [Fabrizio Rinaldi](https://www.fabriziorinaldi.io/) |
 
 ### Contribute
