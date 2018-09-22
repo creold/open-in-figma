@@ -26,13 +26,6 @@ var action = chrome.browserAction;
 var tabs = chrome.tabs;
 var toggle = false;
 
-// After install/update, start the instruction page
-chrome.runtime.onInstalled.addListener (function(details) {
-    if (details.reason == "install" || details.reason == "update") {
-      showReadme();       
-    }
-});
-
 // Get extension status
 storage.get("OIFStatus", function(data) {
   if (data.OIFStatus || data.OIFStatus == undefined) {
@@ -54,12 +47,6 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
     tabs.remove(sender.tab.id);
   }
 });
-
-function showReadme() {
-  tabs.create ({
-      url: "https://github.com/creold/open-in-figma/blob/master/help/setup.md"
-  });     
-}
 
 function setAppearance(argument) {
   if (argument) {
